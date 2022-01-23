@@ -1,0 +1,152 @@
+Script started on Sun 28 Feb 2021 10:35:09 PM EST
+tuser@tutor-vserver:~$ ls -al
+total 100
+drwxr-xr-x 8 tuser tuser  4096 Feb 28 22:35 [0m[01;34m.[0m
+drwxr-xr-x 4 root  root   4096 Jul 20  2015 [01;34m..[0m
+-rw------- 1 tuser tuser  1978 Feb 25 18:54 .bash_history
+-rw-r--r-- 1 tuser tuser   220 Jul 20  2015 .bash_logout
+-rw-r--r-- 1 tuser tuser  3184 Jul 20  2015 .bashrc
+drwxr-xr-x 2 tuser tuser  4096 Jul 20  2015 [01;34m.emacs.d[0m
+drwxr-sr-x 2 tuser tuser  4096 Jul 20  2015 [01;34minclude[0m
+drwxr-sr-x 2 tuser tuser  4096 Jul 20  2015 [01;34mlib[0m
+-rw-r--r-- 1 tuser tuser   675 Jul 20  2015 .profile
+drwx------ 2 tuser tuser  4096 Jul 20  2015 [01;34m.ssh[0m
+drwxr-sr-x 2 tuser tuser  4096 Jul 20  2015 [01;34mtestaout[0m
+drwxr-sr-x 2 tuser tuser  4096 Jul 20  2015 [01;34mtestelf[0m
+-rw-r--r-- 1 tuser tuser  2321 Feb 28 22:34 tutor.c
+-rwxr-xr-x 1 tuser tuser 40800 Feb 28 22:34 [01;32mtutor.lnx[0m
+-rw-r--r-- 1 tuser tuser  7556 Feb 28 22:34 tutor.o
+-rw-r--r-- 1 tuser tuser     0 Feb 28 22:35 typescript
+tuser@tutor-vserver:~$ cat tutor,c[K[K.c
+/******************************************************************
+*
+*   file:     tutor.c
+*   author:   eb
+*   date:     September, 1990
+*
+*   Driver for a "tutor" program to mimic and extend the MECB ROM TUTOR.
+* 
+*   built from betty o'neil's previous version
+*
+*   revisions:
+*   Jan '96: changed prompt to PC-tutor, now mimics floppy-based Tutor
+*/
+
+#include <stdio.h>
+#include "slex.h" 
+/* The preprocessor symbol SAPC is #defined in $pcinc/stdio.h.  This
+ * stdio.h is found by i386-gcc because of the -I flag in its compile command
+ * in the Makefile.  In the UNIX case, there is no such redirection,
+ * so the ordinary stdio.h is used, and it has no SAPC definition.
+ */
+#ifdef SAPC
+#define PROMPT "PC-tutor> "
+#else
+#define PROMPT "UNIX-tutor> "
+#endif
+int main(void);
+void getcmd(char *, int *, int *);
+
+int main()
+{
+  int done = 0;
+  int cnum,linepos;
+  char linebuf[LINELEN];
+  Cmd *cp;
+
+  printf("     cmd    help message\n");
+  for(cp = cmds; cp->cmdtoken; cp++) 
+      printf("%8s    %s\n", cp->cmdtoken, cp->help);
+
+  while (!done) {
+    /* get cmd token from user by parsing first part of line in linebuf-- */
+    getcmd(linebuf,&cnum,&linepos);
+    /* call implementation routine for matched cmd-- */
+    /* (remaining part of line to parse starts at linebuf+linepos) */
+    done = cmds[cnum].cmdfn(&cmds[cnum], linebuf+linepos); 
+  }
+  return 0;
+}
+
+/***********************************************************************
+*
+*  getcmd 
+*
+* Better than scanf--read whole line in, parse resulting string.
+* Uses slex package to match cmd token in first part of linebuf 
+* and return command # and where to continue parsing.
+* Getcmd loops until user provides proper command, so no error return.
+*/
+void getcmd(char *linebuf, 
+             int *cnum_ptr,   /* returned command number */
+             int *pos_ptr     /* position in linebuf (after cmd token) */
+           )
+{
+  int done = 0;
+
+  while (!done) {
+     printf( PROMPT );
+     gets(linebuf);		/* read line from user, null terminate */
+     /* match cmd token to get cnum--call slex package to do lookup-- */
+     if (slex( linebuf, cmds, cnum_ptr, pos_ptr)==0) 
+         done = 1;	/* success in matching cmd */
+     else
+         printf(" No such command\n");
+  }
+}
+tuser@tutor-vserver:~$ mtip -f tutor.lnx
+For command help, type ~?
+For help on args, rerun without args
+Code starts at 0x100100
+Using board # 1 
+Please type <CR> to confirm console setting: 
+Setting console dev to COM2Console: colour EGA+ 80x25
+COM1 at 0x03f8 (irq = 4) is a 16550A
+COM2 at 0x02f8 (irq = 3) is a 16550A
+
+                 Welcome to UMB Tutor for the PC
+   UMB Tutor is a 32-bit protected-mode PC debugger/downloader,
+       based on Linux, UMB Tutor for m68k, and remote gdb.
+UMB Tutor is free software and you are welcome to distribute copies
+of it under certain conditions.  There is no warranty for this program.
+The copyright and warranty provisions follow the Gnu general public
+license, available for view in gdb and elsewhere.  Full sources available.
+--bugs, suggestions, questions to eoneil@cs.umb.edu
+
+Exception 3 at EIP=00057a9b: Breakpoint
+Tutor> ~downloading tutor.lnx
+
+..........Done.
+
+Download done, setting EIP to 100100.
+Tutor> go 100100
+     cmd    help message
+      md    Memory display: MD <addr>
+      ms    Memory set: MS<addr> <value>
+       h    Help: H <command>
+       s    Stop
+PC-tutor> md 000
+ 000 01 00 00 00 53 ff 00 f0 00 6c 14 00 53 ff 00 f0 ....S....l..S...
+Reached mem_display, passed argument string: | 000|
+        help message: Memory display: MD <addr>
+PC-tutor> md 001023e0
+ 001023e0 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+Reached mem_display, passed argument string: | 001023e0|
+        help message: Memory display: MD <addr>
+PC-tutor> ms 001023e0 ee
+ms executed 
+PC-tutor> md 001023e0
+ 001023e0 ee 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+Reached mem_display, passed argument string: | 001023e0|
+        help message: Memory display: MD <addr>
+PC-tutor> h md
+Exception 14 at EIP=00101387: Page fault
+Tutor> 
+Tutor> 
+Quit handler: 
+killing process 1862 Leaving board #1
+tuser@tutor-vserver:~$ 
+tuser@tutor-vserver:~$ exit
+exit
+
+Script done on Sun 28 Feb 2021 10:37:50 PM EST

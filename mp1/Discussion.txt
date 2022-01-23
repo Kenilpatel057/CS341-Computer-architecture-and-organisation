@@ -1,0 +1,81 @@
+
+CS 341   MP1   Discussion.txt                 
+				Name:Kenilkumar Patel
+
+
+Q1.Describe how you tested your code. Try the following experiments. Write several sentences about what you found or learned working on each, and on any other similar kinds of questions that occur to you. 
+
+Ans->  In order to test my code, I used random address at first, but it just showed me segmentation fault, so I check my functions several times and then I was able to understand that I have to check it using usyms file. Weven doing so I was not sure, so I asked my classmates and they said they got the same value while using md. Also I found myself doing random mistakes on mem_display() while doing printing, but was able to correct it as I went ahead. Other functions were easy compared to mem_display(), so I just used the central ide of this function in other functions too.
+ On  SAPC  I cross-checked all addresses by using their value, and again cross checking all my addresses on Tutor-server without running tutor.lnx
+
+Q2. What happens if you call md for an address that does not correspond to a physical memory address? What if you write to an address that's part of your tutor code? Do these questions have the same answers on LINUX and the SAPC? 
+
+Ans-> For SAPC: When I called an address that doesn’t seem to exist the program exits and displays an Exception 14 at EIP=001004f2: Page fall.
+
+     For Unix: I get a segmentation fault. And then my code ends and I found myself in the 	Unix window
+
+Q3. Read the makefile to see where it puts the symbol table (nm output) for your tutor code. Use that symbol table to figure out: 
+
+(a). the address for test global variable xyz, which has value 6. Use tutor with that
+to verify the value in memory
+
+// this was for xyz
+PC-tutor> md 1023e0 
+ 1023e0; 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Reached mem_display, passed argument string: | 1023e0|
+        help message: Memory display: MD <addr>
+
+(b).
+
+// this was for pxyz
+PC-tutor> md 10243c
+ 10243c; e0 23 10 00 04 98 06 00 00 00 00 00 00 00 01 01 00 
+Reached mem_display, passed argument string: | 10243c|
+        help message: Memory display: MD <addr>
+
+value of xyz in memory: e0 23 10 00
+
+(c). 
+
+address of cmds array = 102400
+
+value = 00101c9c
+
+Terminating null: 
+md  00101c9c
+00101c9c    6d 64 00 4d 65 6d 6f 72 79 20 64 69 73 70 6c 61 md.Memory display
+
+(d).Yes, I was able to do that.
+
+Using the address found above
+
+I did, ms 00101290 x
+
+and it showed: ms executed
+
+And using md I checked it.
+
+Q4. Read the nm output to determine where in memory the code resides, on SAPC and LINUX.
+Hint: code symbols are marked t or T. Similarly determine where the data (set of variables)
+resides.
+Ans->  On LINUX-> Code reside near: 080490f0-080495ef  Data resides near->0804bf58- 0804c060
+            On SAPC-> Code resides near: 100100-101bc8   Data resides->1023b8-102541
+
+Q5. Try to change the code itself so that tutor crashes (any random change that actually takes effect should do this). What happens on SAPC? on LINUX?
+
+Ans-> After commenting the whole first for loop
+
+ SAPC: program doesn’t actually crash, but commands stop working.
+ Unix: Segmentation Fault (Code dumped)
+
+Q6.You can't find the program stack using the nm output, but you can find it by looking at the stack pointer, called %esp on the SAPC and LINUX. Record your observations. Use "i reg" (info on registers) to see %esp in gdb and "rd" to see registers in Tutor. 
+
+In Tutor: ESP = 003ffff0, on running rd.
+In LINUX, It says "The program has no register now".
+
+Q7. What other interesting things have you tried?
+-> I tried doing this command and again check my output, also I checked each and every variable's value from syms. 
+
+Q8. What idiosyncrasies of C or LINUX or the SAPC or our installation slowed you down or helped you out? How might the assignment be improved? 
+
+Ans-> At first I was confused about commands on Linux and SAPC, but playing with this mp showed me how I can change the program and what effects it can have. Also at first I thought syms file was same for all, but reading the makefile, gave me bit knowledge on how it created on making tutor.

@@ -1,0 +1,49 @@
+Script started on Sat 03 Apr 2021 02:50:55 AM EDT
+]0;tuser@tutor-vserver: ~tuser@tutor-vserver:~$ gdb  [K[K printbin.lnx
+GNU gdb (GDB) 7.0.1-debian
+Copyright (C) 2009 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "i486-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/tuser/printbin.lnx...done.
+(gdb) tar e[Krem /dev/ttys0
+/dev/ttys0: No such file or directory.
+(gdb) tar rem /dev/ttys0[1P0S0
+Remote debugging using /dev/ttyS0
+_startupc () at startup.c:7
+7	startup.c: No such file or directory.
+	in startup.c
+(gdb) b donibble
+Breakpoint 1 at 0x1001e5
+(gdb) [K(gdb) c
+Continuing.
+
+Breakpoint 1, 0x001001e5 in donibble ()
+(gdb) c
+Continuing.
+
+Breakpoint 1, 0x001001e5 in donibble ()
+(gdb) c
+Continuing.
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00000007 in ?? ()
+(gdb) quir\t[K[K[Kt
+A debugging session is active.
+
+	Inferior 1 [Remote target] will be killed.
+
+Quit anyway? (y or n) y
+]0;tuser@tutor-vserver: ~tuser@tutor-vserver:~$ ls
+[0m[01;34minclude[0m  [01;32mprintbin.lnx[0m  printbin.s     [01;34mtestaout[0m  typescript
+[01;34mlib[0m      printbin.o    printbin.syms  [01;34mtestelf[0m
+]0;tuser@tutor-vserver: ~tuser@tutor-vserver:~$ scp typescriptls[Kgdb printbin.lnxexit[Kmtip -f printbin.lnxls -al[K[Kscp kenil57@users.cs.umb.edu:cs341/mp2/part2+3/printbin.*  .[A]0;tuser@tutor-vserver: ~tuser@tutor-vserver:~$ exit[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cscp kenil57@users.cs.umb.edu:cs341/mp2/part2+3/printbin.*  .[A]0;tuser@tutor-vserver: ~tuser@tutor-vserver:~$ exit[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmtip -f strncpy.lnxls -lg[K[Kscp kenil57@users.cs.umb.edu:cs341/mp2/part2+3/strncpy.* ..[A]0;tuser@tutor-vserver: ~tuser@tutor-vserver:~$ logout[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat typescript[8Plogoutscp kenil57@users.cs.umb.edu:cs341/mp2/part2+3/strncpy.* ..[A]0;tuser@tutor-vserver: ~tuser@tutor-vserver:~$ logout[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat typescriptls[Kmtip -f count.lnxls[Kogoutscp typescript kenil57@users.cs.umb.edu:cs341/mp2/part1/. [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P/.
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C2/. [A]0;tuser@tutor-vserver: ~tuser@tutor-vserver:~$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C+/..[A]0;tuser@tutor-vserver: ~tuser@tutor-vserver:~$ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C3/.2/.[1P/.[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C/.[K[A]0;tuser@tutor-vserver: ~tuser@tutor-vserver:~$ [C[C

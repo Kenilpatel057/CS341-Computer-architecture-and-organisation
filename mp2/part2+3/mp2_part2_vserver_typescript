@@ -1,0 +1,86 @@
+Script started on Sat 03 Apr 2021 02:31:00 AM EDT
+tuser@tutor-vserver:~$ exitmtip -f strncpy.lnxls -lg[K[Kscp kenil57@users.cs.umb.edu:cs341/mp2/part2+3/strncpy.* ..[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Clogout[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cscp kenil57@users.cs.umb.edu:cs341/mp2/part2+3/strncpy.* ..[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -lgmtip -f strncpy.lnxexit[K[Kexitmtip -f strncpy.lnxls -lg[K[Kscp kenil57@users.cs.umb.edu:cs341/mp2/part2+3/strncpy.* ..[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Clogout[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat typescriptls[Kmtip -f count.lnxls[Kogoutscp typescript kenil57@users.cs.umb.edu:cs341/mp2/part1/. [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Clogout[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs[Kmtip -f count.lnxls[Kcat typescript[8Plogoutscp kenil57@users.cs.umb.edu:cs341/mp2/part2+3/strncpy.* ..[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.* . [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P[1P[1P[1P[1P[1@p[1@r[1@i[1@n[1@tb.* . [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ci.* ..[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cn.* .[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+kenil57@users.cs.umb.edu's password: 
+printbin.lnx                                    0%    0     0.0KB/s   --:-- ETAprintbin.lnx                                  100%   30KB  29.9KB/s   00:00    
+printbin.o                                      0%    0     0.0KB/s   --:-- ETAprintbin.o                                    100%  704     0.7KB/s   00:00    
+printbin.s                                      0%    0     0.0KB/s   --:-- ETAprintbin.s                                    100%  687     0.7KB/s   00:00    
+printbin.syms                                   0%    0     0.0KB/s   --:-- ETAprintbin.syms                                 100% 1085     1.1KB/s   00:00    
+tuser@tutor-vserver:~$ ls
+[0m[01;34minclude[0m  [01;32mprintbin.lnx[0m  printbin.s     [01;34mtestaout[0m  typescript
+[01;34mlib[0m      printbin.o    printbin.syms  [01;34mtestelf[0m
+tuser@tutor-vserver:~$ ls -al
+total 92
+drwxr-xr-x 8 tuser tuser  4096 Apr  3 02:31 [0m[01;34m.[0m
+drwxr-xr-x 4 root  root   4096 Jul 20  2015 [01;34m..[0m
+-rw------- 1 tuser tuser  2812 Apr  3 02:17 .bash_history
+-rw-r--r-- 1 tuser tuser   220 Jul 20  2015 .bash_logout
+-rw-r--r-- 1 tuser tuser  3184 Jul 20  2015 .bashrc
+drwxr-xr-x 2 tuser tuser  4096 Jul 20  2015 [01;34m.emacs.d[0m
+drwxr-sr-x 2 tuser tuser  4096 Jul 20  2015 [01;34minclude[0m
+drwxr-sr-x 2 tuser tuser  4096 Jul 20  2015 [01;34mlib[0m
+-rwxr-xr-x 1 tuser tuser 30572 Apr  3 02:31 [01;32mprintbin.lnx[0m
+-rw-r--r-- 1 tuser tuser   704 Apr  3 02:31 printbin.o
+-rw-r--r-- 1 tuser tuser   687 Apr  3 02:31 printbin.s
+-rw-r--r-- 1 tuser tuser  1085 Apr  3 02:31 printbin.syms
+-rw-r--r-- 1 tuser tuser   675 Jul 20  2015 .profile
+drwx------ 2 tuser tuser  4096 Jul 20  2015 [01;34m.ssh[0m
+drwxr-sr-x 2 tuser tuser  4096 Jul 20  2015 [01;34mtestaout[0m
+drwxr-sr-x 2 tuser tuser  4096 Jul 20  2015 [01;34mtestelf[0m
+-rw-r--r-- 1 tuser tuser     0 Apr  3 02:31 typescript
+tuser@tutor-vserver:~$ ls -al[Kscp kenil57@users.cs.umb.edu:cs341/mp2/part2+3/printbin.*  .[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmtip -f strncpy.lnxls -lg[Kmtip -f strncpy.lnx[C[1P.lnx[1P.lnx[1P.lnx[1P.lnx[1P.lnx[1P.lnx[1P.lnxp.lnxr.lnxi.lnxn.lnxt.lnxb.lnxi.lnxn.lnx
+For command help, type ~?
+For help on args, rerun without args
+Code starts at 0x100100
+Using board # 1 
+Please type <CR> to confirm console setting: 
+Setting console dev to COM2Console: colour EGA+ 80x25
+COM1 at 0x03f8 (irq = 4) is a 16550A
+COM2 at 0x02f8 (irq = 3) is a 16550A
+
+                 Welcome to UMB Tutor for the PC
+   UMB Tutor is a 32-bit protected-mode PC debugger/downloader,
+       based on Linux, UMB Tutor for m68k, and remote gdb.
+UMB Tutor is free software and you are welcome to distribute copies
+of it under certain conditions.  There is no warranty for this program.
+The copyright and warranty provisions follow the Gnu general public
+license, available for view in gdb and elsewhere.  Full sources available.
+--bugs, suggestions, questions to eoneil@cs.umb.edu
+
+Exception 3 at EIP=00057a9b: Breakpoint
+Tutor> ~downloading printbin.lnx
+
+........Done.
+
+Download done, setting EIP to 100100.
+Tutor> go 100100
+enter the character's ascii value in hex: 
+3d
+The binary format for character = is 0011 1101
+
+Exception 3 at EIP=00100110: Breakpoint
+Tutor> go 100100
+enter the character's ascii value in hex: 
+ab
+The binary format for character « is 1010 1011
+
+Exception 3 at EIP=00100110: Breakpoint
+Tutor> 
+Tutor> 
+Quit handler: 
+killing process 1846 Leaving board #1
+tuser@tutor-vserver:~$ mtip -f printbin.lnxls -al[K[Kscp kenil57@users.cs.umb.edu:cs341/mp2/part2+3/printbin.*  .[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cscp kenil57@users.cs.umb.edu:cs341/mp2/part2+3/printbin.*  .[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cscp kenil57@users.cs.umb.edu:cs341/mp2/part2+3/printbin.*  .[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cexit[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmtip -f strncpy.lnxls -lg[Kmtip -f strncpy.lnxexit[Kscp kenil57@users.cs.umb.edu:cs341/mp2/part2+3/printbin.*  .[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C -al][K[K[K[K[K[K[K
+tuser@tutor-vserver:~$ exit
+exit
+
+Script done on Sat 03 Apr 2021 02:35:14 AM EDT

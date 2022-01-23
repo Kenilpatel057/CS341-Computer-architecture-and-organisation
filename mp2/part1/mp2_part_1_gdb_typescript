@@ -1,0 +1,229 @@
+Script started on Fri 12 Mar 2021 10:21:02 PM EST
+]0;tuser@tutor-vserver: ~tuser@tutor-vserver:~$ logout[Kgdb count.lns[Kx
+GNU gdb (GDB) 7.0.1-debian
+Copyright (C) 2009 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "i486-linux-gnu".
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>...
+Reading symbols from /home/tuser/count.lnx...done.
+(gdb) tar rem /dev/ttyS0
+Remote debugging using /dev/ttyS0
+0x00100223 in clr_bss ()
+(gdb) set $eip=0x100100
+(gdb) i reg
+eax            0x0	0
+ecx            0x5	5
+edx            0x0	0
+ebx            0x101cec	1055980
+esp            0x3fffdc	0x3fffdc
+ebp            0x3fffe8	0x3fffe8
+esi            0x13e10	81424
+edi            0x101e23	1056291
+eip            0x100100	0x100100 <_start>
+eflags         0x10302	[ TF IF RF ]
+cs             0x10	16
+ss             0x18	24
+ds             0x18	24
+es             0x18	24
+fs             0x18	24
+gs             0x18	24
+(gdb) x/20i 0x100100
+0x100100 <_start>:	mov    $0x3ffff0,%esp
+0x100105 <_start+5>:	mov    $0x0,%ebp
+0x10010a <_start+10>:	call   0x100110 <_startupc>
+0x10010f <_start+15>:	int3   
+0x100110 <_startupc>:	repz nop %ebx
+0x100114 <_startupc+4>:	push   %ebp
+0x100115 <_startupc+5>:	mov    %esp,%ebp
+0x100117 <_startupc+7>:	push   %ebx
+0x100118 <_startupc+8>:	sub    $0x4,%esp
+0x10011b <_startupc+11>:	call   0x10013c <__x86.get_pc_thunk.bx>
+0x100120 <_startupc+16>:	add    $0x1bcc,%ebx
+0x100126 <_startupc+22>:	call   0x100214 <clr_bss>
+0x10012b <_startupc+27>:	call   0x100336 <init_devio>
+0x100130 <_startupc+32>:	call   0x100140 <main>
+0x100135 <_startupc+37>:	nop
+0x100136 <_startupc+38>:	add    $0x4,%esp
+0x100139 <_startupc+41>:	pop    %ebx
+0x10013a <_startupc+42>:	pop    %ebp
+0x10013b <_startupc+43>:	ret    
+0x10013c <__x86.get_pc_thunk.bx>:	mov    (%esp),%ebx
+(gdb) step4
+Undefined command: "step4".  Try "help".
+(gdb) step4[C 4
+Single stepping until exit from function _start, 
+which has no line number information.
+init_devio () at devio.c:18
+18	devio.c: No such file or directory.
+	in devio.c
+(gdb) step 4[K[Ki
+0x0010033a	18	in devio.c
+(gdb) stepi 4[1P4x/20i 0x100100[C[C[C[C[C[C[9Pi regx/20i 0x100100[C[C[C[C[C[C[9Pi regset $eip=0x100100
+(gdb) set $eip=0x100100[C[C[C[C[C[C[Ctepi[K
+Stopped due to shared library event
+(gdb) stepiet $eip=0x100100[C[C[C[C[C[C[Ctepi[Ket $eip=0x100100[C[C[C[C[C[C[Ctepi[K 4[1P4x/20i 0x100100[C[C[C[C[C[C[9Pi reg
+eax            0x0	0
+ecx            0x0	0
+edx            0x0	0
+ebx            0x101cec	1055980
+esp            0x3fffdc	0x3fffdc
+ebp            0x3fffe8	0x3fffe8
+esi            0x13e10	81424
+edi            0x101e28	1056296
+eip            0x100100	0x100100 <_start>
+eflags         0x302	[ TF IF ]
+cs             0x10	16
+ss             0x18	24
+ds             0x18	24
+es             0x18	24
+fs             0x18	24
+gs             0x18	24
+(gdb) i regstepi
+0x00100105 in _start ()
+(gdb) stepi
+0x0010010a in _start ()
+(gdb) stepi
+_startupc () at startup.c:7
+7	startup.c: No such file or directory.
+	in startup.c
+(gdb) stepi
+0x00100114	7	in startup.c
+(gdb) i reg
+eax            0x0	0
+ecx            0x0	0
+edx            0x0	0
+ebx            0x101cec	1055980
+esp            0x3fffec	0x3fffec
+ebp            0x0	0x0
+esi            0x13e10	81424
+edi            0x101e28	1056296
+eip            0x100114	0x100114 <_startupc+4>
+eflags         0x302	[ TF IF ]
+cs             0x10	16
+ss             0x18	24
+ds             0x18	24
+es             0x18	24
+fs             0x18	24
+gs             0x18	24
+(gdb) i reg
+eax            0x0	0
+ecx            0x0	0
+edx            0x0	0
+ebx            0x101cec	1055980
+esp            0x3fffec	0x3fffec
+ebp            0x0	0x0
+esi            0x13e10	81424
+edi            0x101e28	1056296
+eip            0x100114	0x100114 <_startupc+4>
+eflags         0x302	[ TF IF ]
+cs             0x10	16
+ss             0x18	24
+ds             0x18	24
+es             0x18	24
+fs             0x18	24
+gs             0x18	24
+(gdb) i regstepi
+0x00100115	7	in startup.c
+(gdb) stepi
+0x00100117	7	in startup.c
+(gdb) stepi
+0x00100118	7	in startup.c
+(gdb) stepi
+0x0010011b	7	in startup.c
+(gdb) stepii reg
+eax            0x0	0
+ecx            0x0	0
+edx            0x0	0
+ebx            0x101cec	1055980
+esp            0x3fffe0	0x3fffe0
+ebp            0x3fffe8	0x3fffe8
+esi            0x13e10	81424
+edi            0x101e28	1056296
+eip            0x10011b	0x10011b <_startupc+11>
+eflags         0x302	[ TF IF ]
+cs             0x10	16
+ss             0x18	24
+ds             0x18	24
+es             0x18	24
+fs             0x18	24
+gs             0x18	24
+(gdb) i regstepi
+0x0010013c in __x86.get_pc_thunk.bx ()
+(gdb) stepii regstepii regstepi[Kstepii reg[K[K[K[K[Kb *0x100119
+Breakpoint 1 at 0x100119: file startup.c, line 7.
+(gdb) cc[K
+Continuing.
+
+Program received signal SIGTRAP, Trace/breakpoint trap.
+_startupc () at startup.c:7
+7	in startup.c
+(gdb) cb *0x100119[C[C[C[C[C[C[6Pstepii reg
+eax            0x0	0
+ecx            0x3fffe0	4194272
+edx            0x1017f0	1054704
+ebx            0x101cec	1055980
+esp            0x3ffff0	0x3ffff0
+ebp            0x0	0x0
+esi            0x13e10	81424
+edi            0x101e28	1056296
+eip            0x100110	0x100110 <_startupc>
+eflags         0x206	[ PF IF ]
+cs             0x10	16
+ss             0x18	24
+ds             0x18	24
+es             0x18	24
+fs             0x18	24
+gs             0x18	24
+(gdb) i reg
+eax            0x0	0
+ecx            0x3fffe0	4194272
+edx            0x1017f0	1054704
+ebx            0x101cec	1055980
+esp            0x3ffff0	0x3ffff0
+ebp            0x0	0x0
+esi            0x13e10	81424
+edi            0x101e28	1056296
+eip            0x100110	0x100110 <_startupc>
+eflags         0x206	[ PF IF ]
+cs             0x10	16
+ss             0x18	24
+ds             0x18	24
+es             0x18	24
+fs             0x18	24
+gs             0x18	24
+(gdb) c
+Continuing.
+
+Program received signal SIGSEGV, Segmentation fault.
+0x00000007 in ?? ()
+(gdb) ci reg
+eax            0x0	0
+ecx            0x3fffec	4194284
+edx            0x1017f0	1054704
+ebx            0x0	0
+esp            0x3ffff8	0x3ffff8
+ebp            0x0	0x0
+esi            0x13e10	81424
+edi            0x101e28	1056296
+eip            0x7	0x7
+eflags         0x10202	[ IF RF ]
+cs             0x10	16
+ss             0x18	24
+ds             0x18	24
+es             0x18	24
+fs             0x18	24
+gs             0x18	24
+(gdb) quit
+A debugging session is active.
+
+	Inferior 1 [Remote target] will be killed.
+
+Quit anyway? (y or n) y
+]0;tuser@tutor-vserver: ~tuser@tutor-vserver:~$ exit
+exit
+
+Script done on Fri 12 Mar 2021 10:31:41 PM EST

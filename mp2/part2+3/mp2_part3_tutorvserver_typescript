@@ -1,0 +1,105 @@
+Script started on Sat 03 Apr 2021 02:04:51 AM EDT
+tuser@tutor-vserver:~$ scp kenilp[K57@usre[K[Kesrs[K[K[Krs.cs.umb.edu:cs~[C[K341/mp2/part2+3/strncpy.*  .
+kenil57@users.cs.umb.edu's password: 
+strncpy.lnx                                     0%    0     0.0KB/s   --:-- ETAstrncpy.lnx                                   100%   31KB  30.9KB/s   00:00    
+strncpy.o                                       0%    0     0.0KB/s   --:-- ETAstrncpy.o                                     100%  548     0.5KB/s   00:00    
+strncpy.s                                       0%    0     0.0KB/s   --:-- ETAstrncpy.s                                     100%  899     0.9KB/s   00:00    
+strncpy.syms                                    0%    0     0.0KB/s   --:-- ETAstrncpy.syms                                  100% 1055     1.0KB/s   00:00    
+tuser@tutor-vserver:~$ ls
+[0m[01;34minclude[0m  [01;32mstrncpy.lnx[0m  strncpy.s     [01;34mtestaout[0m  typescript
+[01;34mlib[0m      strncpy.o    strncpy.syms  [01;34mtestelf[0m
+tuser@tutor-vserver:~$ ls -lg
+total 60
+drwxr-sr-x 2 tuser  4096 Jul 20  2015 [0m[01;34minclude[0m
+drwxr-sr-x 2 tuser  4096 Jul 20  2015 [01;34mlib[0m
+-rwxr-xr-x 1 tuser 31600 Apr  3 02:06 [01;32mstrncpy.lnx[0m
+-rw-r--r-- 1 tuser   548 Apr  3 02:06 strncpy.o
+-rw-r--r-- 1 tuser   899 Apr  3 02:06 strncpy.s
+-rw-r--r-- 1 tuser  1055 Apr  3 02:06 strncpy.syms
+drwxr-sr-x 2 tuser  4096 Jul 20  2015 [01;34mtestaout[0m
+drwxr-sr-x 2 tuser  4096 Jul 20  2015 [01;34mtestelf[0m
+-rw-r--r-- 1 tuser     0 Apr  3 02:04 typescript
+tuser@tutor-vserver:~$ mtip -f strncpy.lnx
+For command help, type ~?
+For help on args, rerun without args
+Code starts at 0x100100
+Using board # 1 
+Please type <CR> to confirm console setting: 
+Setting console dev to COM2Console: colour EGA+ 80x25
+COM1 at 0x03f8 (irq = 4) is a 16550A
+COM2 at 0x02f8 (irq = 3) is a 16550A
+
+                 Welcome to UMB Tutor for the PC
+   UMB Tutor is a 32-bit protected-mode PC debugger/downloader,
+       based on Linux, UMB Tutor for m68k, and remote gdb.
+UMB Tutor is free software and you are welcome to distribute copies
+of it under certain conditions.  There is no warranty for this program.
+The copyright and warranty provisions follow the Gnu general public
+license, available for view in gdb and elsewhere.  Full sources available.
+--bugs, suggestions, questions to eoneil@cs.umb.edu
+
+Exception 3 at EIP=00057a9b: Breakpoint
+Tutor> ~downloading strncpy.lnx
+
+........Done.
+
+Download done, setting EIP to 100100.
+Tutor> gp o 100100
+Enter a string of characters:
+my name is kenil patel
+Enter the number of characters to copy:
+5
+The strncpy function returned the correct pointer value.
+The strncpy function copied the data correctly.
+The content of the first 5 characters of array s is: my na
+Exception 3 at EIP=00100110: Breakpoint
+Tutor> go 1000
+Exception 13 at EIP=00002039: General protection violation
+Tutor> go 100100
+Enter a string of characters:
+my_name ids_kenil
+Enter the number of characters to copy:
+aThe strncpy function returned the correct pointer value.
+The strncpy function copied the data correctly.
+The content of the first 5 characters of array s is: my_na
+Exception 3 at EIP=00100110: Breakpoint
+Tutor> go 100100
+Enter a string of characters:
+
+Enter the number of characters to copy:
+2
+The strncpy function returned the correct pointer value.
+The strncpy function copied the data correctly.
+The content of the first 2 characters of array s is: my_na
+Exception 3 at EIP=00100110: Breakpoint
+Tutor> go 100100
+Enter a string of characters:
+kenil patel007
+Enter the number of characters to copy:
+15
+The strncpy function returned the correct pointer value.
+The strncpy function copied the data correctly.
+The content of the first 15 characters of array s is: kenil patel007
+Please type <CR> to confirm console setting: 
+Setting console dev to COM2Console: colour EGA+ 80x25
+COM1 at 0x03f8 (irq = 4) is a 16550A
+COM2 at 0x02f8 (irq = 3) is a 16550A
+
+                 Welcome to UMB Tutor for the PC
+   UMB Tutor is a 32-bit protected-mode PC debugger/downloader,
+       based on Linux, UMB Tutor for m68k, and remote gdb.
+UMB Tutor is free software and you are welcome to distribute copies
+of it under certain conditions.  There is no warranty for this program.
+The copyright and warranty provisions follow the Gnu general public
+license, available for view in gdb and elsewhere.  Full sources available.
+--bugs, suggestions, questions to eoneil@cs.umb.edu
+
+Exception 3 at EIP=00057a9b: Breakpoint
+Tutor> cc  
+Tutor> 
+Quit handler: 
+killing process 1790 Leaving board #1
+tuser@tutor-vserver:~$ exit
+exit
+
+Script done on Sat 03 Apr 2021 02:17:09 AM EDT

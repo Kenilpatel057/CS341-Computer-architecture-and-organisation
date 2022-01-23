@@ -1,0 +1,463 @@
+Script started on 2021-02-28 22:28:47-05:00 [TERM="xterm" TTY="/dev/pts/12" COLUMNS="80" LINES="24"]
+kenil57@pe15:~/cs341/mp1$ ls -al
+total 176
+drwxrwsr-x 2 kenil57 cs341-1G  4096 Feb 28 22:28 .
+drwxrws--- 5 kenil57 cs341-1G  4096 Feb 25 16:45 ..
+-rw-r--r-- 1 kenil57 cs341-1G  3582 Feb 28 22:22 cmds.c
+-rw-r--r-- 1 kenil57 cs341-1G  9348 Feb 28 22:24 cmds.o
+-rw-r--r-- 1 kenil57 cs341-1G  7852 Feb 28 22:22 cmds_u.o
+-rw-r--r-- 1 kenil57 cs341-1G  4114 Feb 25 18:22 Discussion.txt
+-rw-r--r-- 1 kenil57 cs341-1G  3029 Feb 20 20:43 makefile
+-rw-r--r-- 1 kenil57 cs341-1G 13728 Sep 17 18:48 Rubric.docx
+-rw-r--r-- 1 kenil57 cs341-1G  2471 Aug 15  2020 slex.c
+-rw-r--r-- 1 kenil57 cs341-1G  1846 Feb 28  2020 slex.h
+-rw-r--r-- 1 kenil57 cs341-1G  7452 Feb 28 22:11 slex.o
+-rw-r--r-- 1 kenil57 cs341-1G  6044 Feb 28 21:45 slex_u.o
+-rw-r--r-- 1 kenil57 cs341-1G  1228 Feb 28 22:24 syms
+-rwxr-xr-x 1 kenil57 cs341-1G 22144 Feb 28 22:22 tutor
+-rw-r--r-- 1 kenil57 cs341-1G  2321 Aug 15  2020 tutor.c
+-rwxr-xr-x 1 kenil57 cs341-1G 40800 Feb 28 22:24 tutor.lnx
+-rw-r--r-- 1 kenil57 cs341-1G  7556 Feb 28 22:11 tutor.o
+-rw-r--r-- 1 kenil57 cs341-1G  6080 Feb 28 21:45 tutor_u.o
+-rw-r--r-- 1 kenil57 cs341-1G     0 Feb 28 22:28 typescript
+-rw-r--r-- 1 kenil57 cs341-1G   620 Feb 28 22:22 usyms
+kenil57@pe15:~/cs341/mp1$ cat discussion.txt
+cat: discussion.txt: No such file or directory
+kenil57@pe15:~/cs341/mp1$ cat Discussion.txt
+
+CS 341   MP1   Discussion.txt                 
+				Name:Kenilkumar Patel
+
+
+Q1.Describe how you tested your code. Try the following experiments. Write several sentences about what you found or learned working on each, and on any other similar kinds of questions that occur to you. 
+
+Ans->  In order to test my code, I used random address at first, but it just showed me segmentation fault, so I check my functions several times and then I was able to understand that I have to check it using usyms file. Weven doing so I was not sure, so I asked my classmates and they said they got the same value while using md. Also I found myself doing random mistakes on mem_display() while doing printing, but was able to correct it as I went ahead. Other functions were easy compared to mem_display(), so I just used the central ide of this function in other functions too.
+ On  SAPC  I cross-checked all addresses by using their value, and again cross checking all my addresses on Tutor-server without running tutor.lnx
+
+Q2. What happens if you call md for an address that does not correspond to a physical memory address? What if you write to an address that's part of your tutor code? Do these questions have the same answers on LINUX and the SAPC? 
+
+Ans-> For SAPC: When I called an address that doesn’t seem to exist the program exits and displays an Exception 14 at EIP=001004f2: Page fall.
+
+     For Unix: I get a segmentation fault. And then my code ends and I found myself in the 	Unix window
+
+Q3. Read the makefile to see where it puts the symbol table (nm output) for your tutor code. Use that symbol table to figure out: 
+
+(a). the address for test global variable xyz, which has value 6. Use tutor with that
+to verify the value in memory
+
+// this was for xyz
+PC-tutor> md 1023e0 
+ 1023e0; 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 
+Reached mem_display, passed argument string: | 1023e0|
+        help message: Memory display: MD <addr>
+
+(b).
+
+// this was for pxyz
+PC-tutor> md 10243c
+ 10243c; e0 23 10 00 04 98 06 00 00 00 00 00 00 00 01 01 00 
+Reached mem_display, passed argument string: | 10243c|
+        help message: Memory display: MD <addr>
+
+value of xyz in memory: e0 23 10 00
+
+(c). 
+
+address of cmds array = 102400
+
+value = 00101c9c
+
+Terminating null: 
+md  00101c9c
+00101c9c    6d 64 00 4d 65 6d 6f 72 79 20 64 69 73 70 6c 61 md.Memory display
+
+(d).Yes, I was able to do that.
+
+
+
+Q4. Read the nm output to determine where in memory the code resides, on SAPC and LINUX.
+Hint: code symbols are marked t or T. Similarly determine where the data (set of variables)
+resides.
+Ans->  On LINUX-> Code reside near: 080490f0-080495ef  Data resides near->0804bf58- 0804c060
+            On SAPC-> Code resides near: 100100-101bc8   Data resides->1023b8-102541
+
+Q5. Try to change the code itself so that tutor crashes (any random change that actually takes effect should do this). What happens on SAPC? on LINUX?
+
+Ans-> After commenting the whole first for loop
+
+ SAPC: program doesn’t actually crash, but commands stop working.
+ Unix: Segmentation Fault (Code dumped)
+
+Q6.You can't find the program stack using the nm output, but you can find it by looking at the stack pointer, called %esp on the SAPC and LINUX. Record your observations. Use "i reg" (info on registers) to see %esp in gdb and "rd" to see registers in Tutor. 
+
+In Tutor: ESP = 003ffff0, on running rd.
+In LINUX, It says "The program has no register now".
+
+Q7. What other interesting things have you tried?
+-> I tried doing this command and again check my output, also I checked each and every variable's value from syms. 
+
+Q8. What idiosyncrasies of C or LINUX or the SAPC or our installation slowed you down or helped you out? How might the assignment be improved? 
+
+Ans-> At first I was confused about commands on Linux and SAPC, but playing with this mp showed me how I can change the program and what effects it can have. Also at first I thought syms file was same for all, but reading the makefile, gave me bit knowledge on how it created on making tutor.kenil57@pe15:~/cs341/mp1$ [Kkenil57@pe15:~/cs341/mp1$ ls
+cmds.c	  Discussion.txt  slex.c  slex_u.o  tutor.c    tutor_u.o
+cmds.o	  makefile	  slex.h  syms	    tutor.lnx  typescript
+cmds_u.o  Rubric.docx	  slex.o  tutor     tutor.o    usyms
+kenil57@pe15:~/cs341/mp1$ cat slex.c
+/******************************************************************
+*
+*   file:   slex.c
+*   author: betty o'neil
+*   date:   ?
+*
+*   simple lexical analyzer, front part of a parser                   
+*   --compare to UNIX tool "lex", general lexical analyzer            
+*   gets a (space-delimited) token from linebuf and tries to match    
+*   it to one of the cmdtokens in the provided cmdtable             
+*
+*   accepts:       
+*         linebuf--string to get token from                         
+*         cmdtable--cmdtable to use                                 
+*   returns:                                                          
+*         *cnum_ptr--command # (offset in cmdtable) or -1 if no match
+*         *pos_ptr--new place in linebuf after token match          
+*
+*   improvements needed:
+*         make token matching case independent
+*         skip whitespace, not just blanks
+*
+*   revisions: 
+*     9/90 cleanup, convert function headers to ansi form
+*
+*/
+
+#include <stdio.h>
+//#include <string.h>
+#include "slex.h"		/* for definition of type cmd */
+
+int slex(char *linebuf,    /* string from user */
+         Cmd cmdtable[],   /* cmd table to use */
+         int *cnum_ptr,    /* returned command number */
+         int *pos_ptr)      /* returned new place in linebuf */
+{
+  int i = 0;
+  char token[MAXTOKENLEN];
+  int newpos;
+
+  if (gettoken(linebuf,token,&newpos)<0) /* get token from linebuf */
+    return -1;			/* couldn't find token */
+
+  while ((cmdtable[i].cmdtoken != NULL)) {
+    if (strcmp(cmdtable[i].cmdtoken,token)==0) {
+	*cnum_ptr = i;		/* success--return command # */
+	*pos_ptr = newpos;	/* and where we got to in linebuf */
+	return 0;
+    }
+    else
+      i++;			/* keep scanning table */
+  }
+  return -1;			/* no match */
+}
+
+/******************************************************************
+ * get one space-delimited token from string in linebuf, also return 
+ * new position in string 
+ */
+int gettoken(char *linebuf, char *token, int *pos_ptr)
+{
+  int i = 0;
+  int j = 0;
+
+  while (linebuf[i] == ' ')
+    i++;			/* skip blanks */
+  while (linebuf[i] != ' '&&linebuf[i]!='\0')
+    token[j++] = linebuf[i++];	/* copy chars to token */
+  if (j==0)
+    return -1;			/* nothing there */
+  else
+    {
+      token[j] = '\0';		/* null-terminate token */
+      *pos_ptr = i;		/* return place in linebuf we got to */
+      return 0;			/* success */
+    }
+}
+kenil57@pe15:~/cs341/mp1$ ls
+cmds.c	  Discussion.txt  slex.c  slex_u.o  tutor.c    tutor_u.o
+cmds.o	  makefile	  slex.h  syms	    tutor.lnx  typescript
+cmds_u.o  Rubric.docx	  slex.o  tutor     tutor.o    usyms
+kenil57@pe15:~/cs341/mp1$ cat tur[Ktor.c
+/******************************************************************
+*
+*   file:     tutor.c
+*   author:   eb
+*   date:     September, 1990
+*
+*   Driver for a "tutor" program to mimic and extend the MECB ROM TUTOR.
+* 
+*   built from betty o'neil's previous version
+*
+*   revisions:
+*   Jan '96: changed prompt to PC-tutor, now mimics floppy-based Tutor
+*/
+
+#include <stdio.h>
+#include "slex.h" 
+/* The preprocessor symbol SAPC is #defined in $pcinc/stdio.h.  This
+ * stdio.h is found by i386-gcc because of the -I flag in its compile command
+ * in the Makefile.  In the UNIX case, there is no such redirection,
+ * so the ordinary stdio.h is used, and it has no SAPC definition.
+ */
+#ifdef SAPC
+#define PROMPT "PC-tutor> "
+#else
+#define PROMPT "UNIX-tutor> "
+#endif
+int main(void);
+void getcmd(char *, int *, int *);
+
+int main()
+{
+  int done = 0;
+  int cnum,linepos;
+  char linebuf[LINELEN];
+  Cmd *cp;
+
+  printf("     cmd    help message\n");
+  for(cp = cmds; cp->cmdtoken; cp++) 
+      printf("%8s    %s\n", cp->cmdtoken, cp->help);
+
+  while (!done) {
+    /* get cmd token from user by parsing first part of line in linebuf-- */
+    getcmd(linebuf,&cnum,&linepos);
+    /* call implementation routine for matched cmd-- */
+    /* (remaining part of line to parse starts at linebuf+linepos) */
+    done = cmds[cnum].cmdfn(&cmds[cnum], linebuf+linepos); 
+  }
+  return 0;
+}
+
+/***********************************************************************
+*
+*  getcmd 
+*
+* Better than scanf--read whole line in, parse resulting string.
+* Uses slex package to match cmd token in first part of linebuf 
+* and return command # and where to continue parsing.
+* Getcmd loops until user provides proper command, so no error return.
+*/
+void getcmd(char *linebuf, 
+             int *cnum_ptr,   /* returned command number */
+             int *pos_ptr     /* position in linebuf (after cmd token) */
+           )
+{
+  int done = 0;
+
+  while (!done) {
+     printf( PROMPT );
+     gets(linebuf);		/* read line from user, null terminate */
+     /* match cmd token to get cnum--call slex package to do lookup-- */
+     if (slex( linebuf, cmds, cnum_ptr, pos_ptr)==0) 
+         done = 1;	/* success in matching cmd */
+     else
+         printf(" No such command\n");
+  }
+}
+kenil57@pe15:~/cs341/mp1$ ls
+cmds.c	  Discussion.txt  slex.c  slex_u.o  tutor.c    tutor_u.o
+cmds.o	  makefile	  slex.h  syms	    tutor.lnx  typescript
+cmds_u.o  Rubric.docx	  slex.o  tutor     tutor.o    usyms
+kenil57@pe15:~/cs341/mp1$ cat cmds.ec[K[Kc
+/******************************************************************
+*
+*   file:     cmds.c
+*   author:   betty o'neil
+*   date:     ?
+*
+*   semantic actions for commands called by tutor (cs341, mp1)
+*
+*   revisions:
+*      9/90  eb   cleanup, convert function declarations to ansi
+*      9/91  eb   changes so that this can be used for hw1
+*      9/02  re   minor changes to quit command
+*/
+/* the Makefile arranges that #include <..> searches in the right
+   places for these headers-- 200920*/
+
+#include <stdio.h>
+#include "slex.h"
+
+/*===================================================================*
+*
+*   Command table for tutor program -- an array of structures of type
+*   cmd -- for each command provide the token, the function to call when
+*   that token is found, and the help message.
+*
+*   slex.h contains the typdef for struct cmd, and declares the
+*   cmds array as extern to all the other parts of the program.
+*   Code in slex.c parses user input command line and calls the
+*   requested semantic action, passing a pointer to the cmd struct
+*   and any arguments the user may have entered.
+*
+*===================================================================*/
+
+PROTOTYPE int stop(Cmd *cp, char *arguments);
+PROTOTYPE int mem_display(Cmd *cp, char *arguments);
+PROTOTYPE int mem_set(Cmd *cp, char *arguments);
+PROTOTYPE int help(Cmd *cp, char *arguments);
+/* command table */
+
+Cmd cmds[] = {{"md",  mem_display, "Memory display: MD <addr>"},
+	      {"ms", mem_set, "Memory set: MS<addr> <value>"},
+	      {"h", help, "Help: H <command>"},
+              {"s",   stop,        "Stop" },
+              {NULL,  NULL,        NULL}};  /* null cmd to flag end of table */
+
+char xyz = 6;  /* test global variable  */
+char *pxyz = &xyz;  /* test pointer to xyz */
+/*===================================================================*
+*		command			routines
+*
+*   Each command routine is called with 2 args, the remaining
+*   part of the line to parse and a pointer to the struct cmd for this
+*   command. Each returns 0 for continue or 1 for all-done.
+*
+*===================================================================*/
+
+int stop(Cmd *cp, char *arguments)
+{
+  return 1;			/* all done flag */
+}
+
+/*===================================================================*
+*
+*   mem_display: display contents of 16 bytes in hex
+*
+*/
+
+int mem_display(Cmd *cp, char *arguments)
+{  
+  int num = 0;
+  int add = 0;
+  unsigned char *add_ptr;
+
+  sscanf(arguments, "%x", &add);
+  add_ptr =  (unsigned char *)add;
+  
+  printf(arguments);
+  printf(" ");
+  for(num = 0; num < 16; num++)
+  {
+  	printf("%02x ", *add_ptr++);
+  }
+  add_ptr = (unsigned char *)add;
+
+  for(num = 0; num < 16; num++)
+  {
+	 if(*add_ptr > 0x20 && *add_ptr < 0x7F)
+		 printf("%c", *add_ptr++);
+	 else
+	 {
+          	printf(".");
+		add_ptr++;
+	 }
+  }
+
+  printf("\n");	
+  printf("Reached mem_display, passed argument string: |%s|\n", arguments);
+  printf("        help message: %s\n", cp->help);
+  return 0;			/* not done */
+}
+// mem_set() a function to set valur
+int mem_set(Cmd *cp, char *arguments)
+{
+	int add = 0;
+        int val = 0;
+	unsigned char *add_ptr;
+	sscanf(arguments, "%x %x", &add, &val);
+	add_ptr = (unsigned char *)add;
+	*add_ptr = val;
+	printf("ms executed \n");
+	return 0;
+}
+
+// help() to display help of particular CMD
+
+int help(Cmd *cp, char *arguments)
+{
+	char string[2];
+	int num = 0;
+	int len  = sizeof(cmds)/sizeof(Cmd);
+	sscanf(arguments, "%s", string);
+	
+	for(num = 0; num < len-1; num++)
+		if((strcmp(cmds[num].cmdtoken, string)) == 0)
+			printf("%s\n", cmds[num].help);
+	return 0;
+}
+kenil57@pe15:~/cs341/mp1$ make clean
+rm -f *.o *.lnx tutor core
+kenil57@pe15:~/cs341/mp1$ ls
+cmds.c		makefile     slex.c  syms     typescript
+Discussion.txt	Rubric.docx  slex.h  tutor.c  usyms
+kenil57@pe15:~/cs341/mp1$ make
+gcc -DSAPC -gdwarf-2 -gstrict-dwarf -march=i586 -m32 -fno-builtin -fno-stack-protector -nostdlib     -c -Wall -I/home/cheungr/serl/tutor-linux/include  -c -o /home/kenil57/cs341/mp1/tutor.o /home/kenil57/cs341/mp1/tutor.c
+gcc -DSAPC -gdwarf-2 -gstrict-dwarf -march=i586 -m32 -fno-builtin -fno-stack-protector -nostdlib     -c -Wall -I/home/cheungr/serl/tutor-linux/include  -c -o /home/kenil57/cs341/mp1/slex.o /home/kenil57/cs341/mp1/slex.c
+gcc -DSAPC -gdwarf-2 -gstrict-dwarf -march=i586 -m32 -fno-builtin -fno-stack-protector -nostdlib     -c -Wall -I/home/cheungr/serl/tutor-linux/include  -c -o /home/kenil57/cs341/mp1/cmds.o /home/kenil57/cs341/mp1/cmds.c
+ld -m elf_i386 -N -Ttext 100100 -o tutor.lnx \
+/home/cheungr/serl/tutor-linux/libc/startup0.o /home/cheungr/serl/tutor-linux/libc/startup.o \
+/home/kenil57/cs341/mp1/tutor.o /home/kenil57/cs341/mp1/slex.o /home/kenil57/cs341/mp1/cmds.o /home/cheungr/serl/tutor-linux/libc/libc.a
+rm -f syms;nm -n tutor.lnx>syms
+kenil57@pe15:~/cs341/mp1$ ls
+cmds.c	Discussion.txt	Rubric.docx  slex.h  syms     tutor.lnx  typescript
+cmds.o	makefile	slex.c	     slex.o  tutor.c  tutor.o	 usyms
+kenil57@pe15:~/cs341/mp1$ ./tutor
+bash: ./tutor: No such file or directory
+kenil57@pe15:~/cs341/mp1$ ./[K[Kmake tutor
+gcc -m32 -Wall -Wno-implicit -Wshadow -g  -c -o /home/kenil57/cs341/mp1/tutor_u.o /home/kenil57/cs341/mp1/tutor.c
+gcc -m32 -Wall -Wno-implicit -Wshadow -g  -c -o /home/kenil57/cs341/mp1/slex_u.o /home/kenil57/cs341/mp1/slex.c
+gcc -m32 -Wall -Wno-implicit -Wshadow -g  -c -o /home/kenil57/cs341/mp1/cmds_u.o /home/kenil57/cs341/mp1/cmds.c
+[01m[K/home/kenil57/cs341/mp1/cmds.c:[m[K In function ‘[01m[Kmem_display[m[K’:
+[01m[K/home/kenil57/cs341/mp1/cmds.c:77:3:[m[K [01;35m[Kwarning: [m[Kformat not a string literal and no format arguments [[01;35m[K-Wformat-security[m[K]
+   77 |   [01;35m[Kprintf[m[K(arguments);
+      |   [01;35m[K^~~~~~[m[K
+ld -m elf_i386 -o tutor /home/kenil57/cs341/mp1/tutor_u.o /home/kenil57/cs341/mp1/slex_u.o /home/kenil57/cs341/mp1/cmds_u.o -e main -dynamic-linker /lib/ld-linux.so.2 -lc
+ld: /home/kenil57/cs341/mp1/tutor_u.o: in function `getcmd':
+/home/kenil57/cs341/mp1/tutor.c:69: warning: the `gets' function is dangerous and should not be used.
+rm -f usyms; nm -vpt x tutor > usyms
+kenil57@pe15:~/cs341/mp1$ ./tutu[Kor
+     cmd    help message
+      md    Memory display: MD <addr>
+      ms    Memory set: MS<addr> <value>
+       h    Help: H <command>
+       s    Stop
+UNIX-tutor> md 0804c045 0
+ 0804c040 06 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+Reached mem_display, passed argument string: | 0804c040|
+        help message: Memory display: MD <addr>
+UNIX-tutor> md 0804c045
+ 0804c045 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+Reached mem_display, passed argument string: | 0804c045|
+        help message: Memory display: MD <addr>
+UNIX-tutor> ms 0804c045 ee
+ms executed 
+UNIX-tutor> md 00804c045
+ 00804c045 ee 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ................
+Reached mem_display, passed argument string: | 00804c045|
+        help message: Memory display: MD <addr>
+UNIX-tutor> h ms
+Memory set: MS<addr> <value>
+UNIX-tutor> h md
+Memory display: MD <addr>
+UNIX-tutor> hh  h
+Help: H <command>
+UNIX-tutor> h s
+Stop
+UNIX-tutor> s
+Segmentation fault (core dumped)
+kenil57@pe15:~/cs341/mp1$ ls[K[Kls
+cmds.c	  Discussion.txt  slex.c  slex_u.o  tutor.c    tutor_u.o
+cmds.o	  makefile	  slex.h  syms	    tutor.lnx  typescript
+cmds_u.o  Rubric.docx	  slex.o  tutor     tutor.o    usyms
+kenil57@pe15:~/cs341/mp1$ exit
+exit
+
+Script done on 2021-02-28 22:32:58-05:00 [COMMAND_EXIT_CODE="0"]
