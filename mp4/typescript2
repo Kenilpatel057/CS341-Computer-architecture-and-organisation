@@ -1,0 +1,565 @@
+Script started on Wed 28 Apr 2021 07:10:39 PM EDT
+tuser@tutor-vserver:~$ ls
+[0m[01;34minclude[0m  [01;34mlib[0m  [01;34mtestaout[0m  [01;34mtestelf[0m  typescript
+tuser@tutor-vserver:~$ scp kenil57@users.cs.umb.edu:cs~[K/~[C[K[K~[C[K341/mp4/.[Kmeasure.* .
+kenil57@users.cs.umb.edu's password: 
+measure.c                                       0%    0     0.0KB/s   --:-- ETAmeasure.c                                     100% 2503     2.4KB/s   00:00    
+measure.lnx                                     0%    0     0.0KB/s   --:-- ETAmeasure.lnx                                   100%   35KB  35.1KB/s   00:00    
+measure.o                                       0%    0     0.0KB/s   --:-- ETAmeasure.o                                     100% 7940     7.8KB/s   00:00    
+measure.syms                                    0%    0     0.0KB/s   --:-- ETAmeasure.syms                                  100% 1846     1.8KB/s   00:00    
+tuser@tutor-vserver:~$ scp kenil57@users.cs.umb.edu:cs341/mp4/charGen .
+kenil57@users.cs.umb.edu's password: 
+scp: cs341/mp4/charGen: No such file or directory
+tuser@tutor-vserver:~$ scp kenil57@users.cs.umb.edu:cs341/mp4/charGen.c .
+kenil57@users.cs.umb.edu's password: 
+charGen.c                                       0%    0     0.0KB/s   --:-- ETAcharGen.c                                     100% 8835     8.6KB/s   00:00    
+tuser@tutor-vserver:~$ ls
+charGen.c  [0m[01;34mlib[0m        [01;32mmeasure.lnx[0m  measure.syms  [01;34mtestelf[0m
+[01;34minclude[0m    measure.c  measure.o    [01;34mtestaout[0m      typescript
+tuser@tutor-vserver:~$ mtip -f measure.lnx
+For command help, type ~?
+For help on args, rerun without args
+Code starts at 0x100100
+Using board # 1 
+Please type <CR> to confirm console setting: 
+Setting console dev to COM2Console: colour EGA+ 80x25
+COM1 at 0x03f8 (irq = 4) is a 16550A
+COM2 at 0x02f8 (irq = 3) is a 16550A
+
+                 Welcome to UMB Tutor for the PC
+   UMB Tutor is a 32-bit protected-mode PC debugger/downloader,
+       based on Linux, UMB Tutor for m68k, and remote gdb.
+UMB Tutor is free software and you are welcome to distribute copies
+of it under certain conditions.  There is no warranty for this program.
+The copyright and warranty provisions follow the Gnu general public
+license, available for view in gdb and elsewhere.  Full sources available.
+--bugs, suggestions, questions to eoneil@cs.umb.edu
+
+Exception 3 at EIP=00057a9b: Breakpoint
+Tutor> go 100100
+Exception 13 at EIP=0010010c: General protection violation
+Tutor> ~downloading measure.lnx
+
+.........Done.
+
+Download done, setting EIP to 100100.
+Tutor> go 100100
+Calling set_intr_gate (irq = 3, n = 0x23) to arm interrupt...
+Commanding PIC to interrupt CPU for irq 3 (COM2_IRQ)
+enabling receiver interrupts in UART...
+Calling locate_idt to do sidt instruction...
+Found idt at 5604c, lim 7ff
+Filling in desc at 5614c with addr 1005d8
+...done, entering almost-infinite loop
+time interval= 133785606 us for char=A
+time interval= 1011303 us for char=B
+time interval= 1002274 us for char=C
+time interval= 1007349 us for char=D
+time interval= 1003515 us for char=E
+time interval= 1011268 us for char=F
+time interval= 1010284 us for char=G
+time interval= 1002355 us for char=0
+time interval= 2005134 us for char=1
+time interval= 2010633 us for char=2
+time interval= 2009623 us for char=3
+time interval= 2004649 us for char=4
+time interval= 2014531 us for char=5
+time interval= 2007628 us for char=6
+time interval= 2000712 us for char=a
+time interval= 3006950 us for char=b
+time interval= 3002983 us for char=c
+time interval= 3002922 us for char=d
+time interval= 3012955 us for char=e
+time interval= 3009011 us for char=f
+time interval= 3006927 us for char=g
+time interval= 3011926 us for char=M
+time interval= 76825 us for char=N
+time interval= 79736 us for char=O
+time interval= 79832 us for char=P
+time interval= 78759 us for char=Q
+time interval= 78737 us for char=R
+time interval= 78784 us for char=S
+time interval= 76858 us for char=0
+time interval= 95682 us for char=1
+time interval= 95758 us for char=2
+time interval= 95778 us for char=3
+time interval= 95715 us for char=4
+time interval= 94766 us for char=5
+time interval= 95724 us for char=6
+time interval= 95740 us for char=t
+time interval= 95733 us for char=u
+time interval= 93726 us for char=v
+time interval= 93796 us for char=w
+time interval= 77743 us for char=x
+time interval= 93747 us for char=y
+time interval= 91769 us for char=z
+Exception 3 at EIP=00100110: Breakpoint
+Tutor> 
+Tutor> 
+Quit handler: 
+killing process 1944 Leaving board #1
+tuser@tutor-vserver:~$ ls -lg
+total 92
+-rwxr-xr-x 1 tuser  6323 Apr 28 19:17 [0m[01;32mcharGen[0m
+-rw-r--r-- 1 tuser  8835 Apr 28 19:13 charGen.c
+drwxr-sr-x 2 tuser  4096 Jul 20  2015 [01;34minclude[0m
+drwxr-sr-x 2 tuser  4096 Jul 20  2015 [01;34mlib[0m
+-rw-r--r-- 1 tuser  2503 Apr 28 19:11 measure.c
+-rwxr-xr-x 1 tuser 35980 Apr 28 19:11 [01;32mmeasure.lnx[0m
+-rw-r--r-- 1 tuser  7940 Apr 28 19:11 measure.o
+-rw-r--r-- 1 tuser  1846 Apr 28 19:11 measure.syms
+drwxr-sr-x 2 tuser  4096 Jul 20  2015 [01;34mtestaout[0m
+drwxr-sr-x 2 tuser  4096 Jul 20  2015 [01;34mtestelf[0m
+-rw-r--r-- 1 tuser  4096 Apr 28 19:18 typescript
+tuser@tutor-vserver:~$ cst [K[K[Kat makefile
+cat: makefile: No such file or directory
+tuser@tutor-vserver:~$ cat measure[K[K[K[K[K[K[K[K[K[K[Kls
+[0m[01;32mcharGen[0m    [01;34minclude[0m  measure.c    measure.o     [01;34mtestaout[0m  typescript
+charGen.c  [01;34mlib[0m      [01;32mmeasure.lnx[0m  measure.syms  [01;34mtestelf[0m
+tuser@tutor-vserver:~$ cat charGen.c
+        /*====================================================================================================*/
+        /* Serial Port Programming in C (Serial Port Write)                                                   */
+	/* Non Cannonical mode                                                                                */
+	/*----------------------------------------------------------------------------------------------------*/
+        /* Program writes a character to the serial port at 9600 bps 8N1 format                               */
+	/* Baudrate - 9600                                                                                    */
+	/* Stop bits -1                                                                                       */
+	/* No Parity                                                                                          */
+        /*----------------------------------------------------------------------------------------------------*/
+	/* Compiler/IDE  : gcc 4.6.3                                                                          */
+	/* Library       :                                                                                    */
+	/* Commands      : gcc -o serialport_write serialport_write.c                                         */
+	/* OS            : Linux(x86) (Linux Mint 13 Maya)(Linux Kernel 3.x.x)                                */                              
+	/* Programmer    : Rahul.S                                                                            */
+	/* Date	         : 21-December-2014                                                                   */
+	/*====================================================================================================*/
+	
+	/*====================================================================================================*/
+	/* Running the executable                                                                             */
+	/* ---------------------------------------------------------------------------------------------------*/ 
+	/* 1) Compile the  serialport_read.c  file using gcc on the terminal (without quotes)                 */
+        /*                                                                                                    */
+	/*	" gcc -o serialport_write serialport_write.c "                                                */
+	/*                                                                                                    */
+        /* 2) Linux will not allow you to access the serial port from user space,you have to be root.So use   */
+        /*    "sudo" command to execute the compiled binary as super user.                                    */
+        /*                                                                                                    */
+        /*       "sudo ./serialport_write"                                                                    */
+	/*                                                                                                    */
+	/*====================================================================================================*/
+
+	/*====================================================================================================*/
+	/* Sellecting the Serial port Number on Linux                                                         */
+	/* ---------------------------------------------------------------------------------------------------*/ 
+	/* /dev/ttyUSBx - when using USB to Serial Converter, where x can be 0,1,2...etc                      */
+	/* /dev/ttySx   - for PC hardware based Serial ports, where x can be 0,1,2...etc                      */
+        /*====================================================================================================*/
+	
+	/*-------------------------------------------------------------*/
+    	/* termios structure -  /usr/include/asm-generic/termbits.h    */ 
+	/* use "man termios" to get more info about  termios structure */
+	/*-------------------------------------------------------------*/
+
+    	#include <stdio.h>
+    	#include <fcntl.h>   /* File Control Definitions           */
+    	#include <termios.h> /* POSIX Terminal Control Definitions */
+    	#include <unistd.h>  /* UNIX Standard Definitions 	   */ 
+    	#include <errno.h>   /* ERROR Number Definitions           */
+
+    	void main(void)
+    	{
+        	int fd;/*File Descriptor*/
+		
+		printf("\n +----------------------------------+");
+		printf("\n |        Serial Port Write         |");
+		printf("\n +----------------------------------+");
+
+		/*------------------------------- Opening the Serial Port -------------------------------*/
+
+		/* Change /dev/ttyUSB0 to the one corresponding to your system */
+
+        	fd = open("/dev/ttyS1",O_RDWR | O_NOCTTY | O_NDELAY);	/* ttyUSB0 is the FT232 based USB2SERIAL Converter   */
+			   						/* O_RDWR Read/Write access to serial port           */
+									/* O_NOCTTY - No terminal will control the process   */
+									/* O_NDELAY -Non Blocking Mode,Does not care about-  */
+									/* -the status of DCD line,Open() returns immediatly */                                        
+									
+        	if(fd == -1)						/* Error Checking */
+            	   printf("\n  Error! in Opening ttyS1  ");
+        	else
+            	   printf("\n  ttyS1 Opened Successfully ");
+
+	
+		/*---------- Setting the Attributes of the serial port using termios structure --------- */
+		
+		struct termios SerialPortSettings;	/* Create the structure                          */
+
+		tcgetattr(fd, &SerialPortSettings);	/* Get the current attributes of the Serial port */
+
+		cfsetispeed(&SerialPortSettings,B9600); /* Set Read  Speed as 9600                       */
+		cfsetospeed(&SerialPortSettings,B9600); /* Set Write Speed as 9600                       */
+
+		SerialPortSettings.c_cflag &= ~PARENB;   /* Disables the Parity Enable bit(PARENB),So No Parity   */
+		SerialPortSettings.c_cflag &= ~CSTOPB;   /* CSTOPB = 2 Stop bits,here it is cleared so 1 Stop bit */
+		SerialPortSettings.c_cflag &= ~CSIZE;	 /* Clears the mask for setting the data size             */
+		SerialPortSettings.c_cflag |=  CS8;      /* Set the data bits = 8                                 */
+	
+		SerialPortSettings.c_cflag &= ~CRTSCTS;       /* No Hardware flow Control                         */
+		SerialPortSettings.c_cflag |= CREAD | CLOCAL; /* Enable receiver,Ignore Modem Control lines       */ 
+		
+		
+		SerialPortSettings.c_iflag &= ~(IXON | IXOFF | IXANY);          /* Disable XON/XOFF flow control both i/p and o/p */
+		SerialPortSettings.c_iflag &= ~(ICANON | ECHO | ECHOE | ISIG);  /* Non Cannonical mode                            */
+
+		SerialPortSettings.c_oflag &= ~OPOST;/*No Output Processing*/
+
+		if((tcsetattr(fd,TCSANOW,&SerialPortSettings)) != 0) /* Set the attributes to the termios structure*/
+		    printf("\n  ERROR ! in Setting attributes");
+		else
+                    printf("\n  BaudRate = 9600 \n  StopBits = 1 \n  Parity   = none");
+			
+	        /*------------------------------- Write data to serial port -----------------------------*/
+                printf("\n +----------------------------------+");
+                printf("\n |        Time Testing              |");
+                printf("\n +----------------------------------+\n");
+
+            int i, j, time_span;
+            int time[] = {1000, 2000, 3000, 70, 80, 90};
+            char input[]= {'A', '0', 'a', 'M','0','t'};
+            for (j=0; j < 6; j++ ){
+                time_span = time[j];
+                printf("  measure wait time = %d msec using input starting character %c\n", time_span, input[j]);
+ 
+		char write_buffer = input[j];	/* Buffer containing characters to write into port	     */	
+		int  bytes_written  = 0;  	/* Value for storing the number of bytes written to the port */ 
+                for (i =0; i <7; i++){
+
+       		  bytes_written = write(fd,&write_buffer,sizeof(write_buffer));/* use write() to send data to port                                            */
+									     /* "fd"                   - file descriptor pointing to the opened serial port */
+									     /*	"write_buffer"         - address of the buffer containing data	            */
+									     /* "sizeof(write_buffer)" - No of bytes to write                               */	
+        	//	printf("\n  %c written to ttyS1",write_buffer);
+                //	printf("\n  %d Bytes written to ttyS1", bytes_written);
+                //	printf("\n +----------------------------------+\n\n");
+                   write_buffer++;
+	           usleep(time_span * 1000);
+                  }
+                }
+		close(fd);/* Close the Serial port */
+
+    	}
+tuser@tutor-vserver:~$ cat[K[K[Kls
+[0m[01;32mcharGen[0m    [01;34minclude[0m  measure.c    measure.o     [01;34mtestaout[0m  typescript
+charGen.c  [01;34mlib[0m      [01;32mmeasure.lnx[0m  measure.syms  [01;34mtestelf[0m
+tuser@tutor-vserver:~$ cat measure.c
+/* typewr.c: echo on COM2 using UART receiver interrupts                 */
+/* The needed interrupt envelope routines irq3int, etc. are in           */
+/*   the library, and sti, cli, pic_enable_irq, etc., are there too.     */
+#include <stdio.h>
+#include <serial.h>
+#include <cpu.h>
+#include <pic.h>
+#include "timepack.h"
+
+extern IntHandler irq3inthand; /* the assembler envelope routine    */
+void irq3inthandc(void);  /* the C core int handler, called from envelope */
+
+int done;			/* global for communication with int hand */
+int time;
+
+/* Note in our enviroment, interrupts are normally enabled in the CPU, so we
+   use cli() as necessary even at the very start of the program */
+int main(void)
+{
+  if (sys_get_console_dev() != COM2)
+    printf("Warning: console not COM2, so echos won't show on console\n");
+
+  /* init global explicitly, so program works properly on reruns */
+  done = 0;			
+				 
+  cli();			/* disable ints while setting them up */
+  printf("Calling set_intr_gate (irq = 3, n = 0x23) to arm interrupt...\n");
+  set_intr_gate(COM2_IRQ+IRQ_TO_INT_N_SHIFT, &irq3inthand);
+
+  printf("Commanding PIC to interrupt CPU for irq 3 (COM2_IRQ)\n");
+  pic_enable_irq(COM2_IRQ);
+
+  printf("enabling receiver interrupts in UART...\n");
+  outpt(COM2_BASE+UART_IER, UART_IER_RDI); /* RDI = receiver data int */
+  /*  now hardware reg's are all set up, time to allow CPU ints-- */
+ inittimer();
+  sti();
+  printf("...done, entering almost-infinite loop\n");
+  starttimer();
+
+  while (!done)			/* loop almost forever...*/
+    ;
+  /* here when user types 'q': shutdown ints we started up */
+  cli();
+  pic_disable_irq(COM2_IRQ);	/* done with irq 3 in PIC */
+  outpt(COM2_BASE+UART_IER, 0); /* stop UART ints */
+  sti();			/* but other ints still there */
+  return 0;
+}
+
+/* this is called from irq3inthand, the assembler interrupt envelope routine */
+/* that saves the C scratch regs on the stack, restores them after this,  */
+/* then does the iret instruction.                                        */
+void irq3inthandc(void)
+{
+  char ch;
+
+  stoptimer(&time);
+  starttimer();
+  pic_end_int();		/* notify PIC that its part is done */
+  ch = inpt(COM2_BASE+UART_RX);	/* read char (ACKs UART too) */
+  printf("time interval= %d us for char=", time);
+  if (ch == 'z')
+    done = 1;			/* set global flag to let main know */
+  outpt(COM2_BASE+UART_TX,ch); /* echo char (Transmitter should be ready) */
+  outpt(COM2_BASE+UART_TX,0xd); /*output a CR */
+  outpt(COM2_BASE+UART_TX,0xa);/* output a LF */
+}
+tuser@tutor-vserver:~$ scp kenil57@usre[K[Kers.cs.umb.edu:cs341/mp2[K4/timepack_sapc.c[K* .
+kenil57@users.cs.umb.edu's password: 
+timepack_sapc.c                                 0%    0     0.0KB/s   --:-- ETAtimepack_sapc.c                               100% 4629     4.5KB/s   00:00    
+timepack_sapc.o                                 0%    0     0.0KB/s   --:-- ETAtimepack_sapc.o                               100% 9704     9.5KB/s   00:00    
+tuser@tutor-vserver:~$ ls
+[0m[01;32mcharGen[0m    [01;34mlib[0m          measure.o     [01;34mtestelf[0m          typescript
+charGen.c  measure.c    measure.syms  timepack_sapc.c
+[01;34minclude[0m    [01;32mmeasure.lnx[0m  [01;34mtestaout[0m      timepack_sapc.o
+tuser@tutor-vserver:~$ cat timepack_sapc.c
+
+/******************************************************************
+*
+*   file:      timepack_sapc.c
+*   author:    Betty O'Neil
+*   date:      '88 (MECB)
+*
+*   revisions: Ethan Bolker, October 1990 to #include header file timepack.h
+*              Betty O'Neil, March 1992 to add inittimer
+*              Betty O'Neil, S96 to SAPC
+*
+*   SAPC timing package.
+*   Link with code containing calls to stoptimer, starttimer
+*
+*   To do:
+*      Implement static flag set when timer is running
+*        (for now everything returns T_OK)
+*/
+
+/* constants and prototypes for timing package primitives */
+#include <stdio.h>
+#include "timepack.h"
+#include <timer.h>
+#include <pic.h>
+#include <cpu.h>
+
+typedef enum { FALSE, TRUE } Boolean;
+
+/* PC's 8254 timer: one tick consists of 64K counts at 1193182 counts/sec */
+#define COUNTS_PER_SEC 1193182 
+#define COUNTS_PER_TICK (64*1024)
+/* This is a double constant--see K&R, p. 37.  Doubles are great for
+ conversion constants.  Just convert back to int at end if apprpriate */
+#define USECS_PER_TICK (1000000.0*COUNTS_PER_TICK/COUNTS_PER_SEC)
+#define USECS_PER_COUNT (1000000.0/COUNTS_PER_SEC)
+/* precision = time between possible values, in us */
+#define TIMER_PRECISION 1
+
+extern const IntHandler irq0inthand;
+
+static int tickcount;
+static int startcount;
+static int timer_running;
+
+void set_timer_count(int count);
+void irq0inthandc(void);
+void smalldelay(void);
+
+/* set timer ticking.  This is called only once at start of program */
+void inittimer()
+{
+  tickcount = 0;
+#ifdef DEBUG
+  printf("Disabling interrupts in CPU while setting them up\n");
+#endif
+  cli();
+#ifdef DEBUG  
+  printf("Setting interrupt gate for timer, irq 0\n");
+#endif
+  /* irq 0 maps to slot n = 0x20 in IDT for linux setup */
+  debug_set_intr_gate(TIMER0_IRQ+IRQ_TO_INT_N_SHIFT, &irq0inthand, 1);
+#ifdef DEBUG
+  printf("Commanding PIC to interrupt CPU for irq 0\n");
+#endif
+  pic_enable_irq(TIMER0_IRQ);
+  timer_running = 0;		/* starts running at call to starttimer */
+#ifdef DEBUG
+  printf("Commanding timer to generate a pulse train using max count\n");
+#endif
+  set_timer_count(0);	
+#ifdef DEBUG
+  printf("Enabling interrupts in CPU\n");
+#endif
+  sti();
+}
+
+/* This is NEEDED: future ints could find bogus int handler after this
+ * code is overwritten by next download or whatever, requiring reboot.
+ * This is called once at end of program.
+ */
+void shutdowntimer()
+{
+  cli();
+#ifdef DEBUG
+  printf("Commanding PIC to shut off irq 0 to CPU\n");
+#endif
+  pic_disable_irq(TIMER0_IRQ);	/* disallow irq 0 ints to get to CPU */
+  sti();
+}
+
+/*  for the SAPC case:  microsecond precision (though not microsecond
+ *  *accuracy* because of various overhead times involved)
+*/
+void querytimer(int *precision, int *running)
+{
+   *precision = TIMER_PRECISION;
+   *running = timer_running;
+   return;
+}
+
+/* start a timed experiment: improve this along with stoptimer */
+int starttimer()
+{
+  int downcount;
+
+  outpt(TIMER_CNTRL_PORT, TIMER0 |TIMER_LATCH);
+  downcount = inpt(TIMER0_COUNT_PORT);
+  downcount |= (inpt(TIMER0_COUNT_PORT) << 8);
+  
+  startcount = COUNTS_PER_TICK * tickcount + (COUNTS_PER_TICK - downcount);
+  timer_running = TRUE;
+  return T_OK;
+}
+
+/* temporary crude way: better to read the counter and add in the downcounts
+ * (converted to us) since the last tick, and similarly change starttime 
+ * to record the starting downcount, and adjust for another partial tick.
+ * Remember that printf takes a *lot* of time!!  Don't do it during experiments.
+ */
+int stoptimer( int *interval )
+{
+  int downcount;
+
+  outpt(TIMER_CNTRL_PORT, TIMER0 |TIMER_LATCH);
+  downcount = inpt(TIMER0_COUNT_PORT);
+  downcount |= (inpt(TIMER0_COUNT_PORT) << 8);
+
+  *interval = COUNTS_PER_TICK * tickcount + (COUNTS_PER_TICK - downcount);
+  *interval = (*interval - startcount)*USECS_PER_COUNT;
+#ifdef DEBUG
+  printf("stoptimer reached, returning inaccurate time until fixed\n");
+#endif
+  timer_running = FALSE;
+  return T_OK;
+}
+
+/* about 10 us on a SAPC (400Mhz Pentium) */
+void smalldelay(void)
+{
+  int i;
+  
+  for (i=0;i<1000;i++)
+    ;
+}
+
+/* Set up timer to count down from given count, then send a tick interrupt, */
+/* over and over. A count of 0 sets max count, 65536 = 2**16 */
+void set_timer_count(int count)
+{
+  outpt(TIMER_CNTRL_PORT, TIMER0|TIMER_SET_ALL|TIMER_MODE_RATEGEN);
+  outpt(TIMER0_COUNT_PORT,count&0xff); /* set LSB here */
+  outpt(TIMER0_COUNT_PORT,count>>8); /* and MSB here */
+  smalldelay();			/* give the timer a moment to init. */
+}
+
+/* timer interrupt handler */
+void irq0inthandc(void)
+{
+  pic_end_int();		/* notify PIC that its part is done */
+  tickcount++;			/* count the tick in global var */
+}tuser@tutor-vserver:~$ scp kenil57@users.cs.umb.edu:cs341/mp4/makefile .
+kenil57@users.cs.umb.edu's password: 
+makefile                                        0%    0     0.0KB/s   --:-- ETAmakefile                                      100% 2408     2.4KB/s   00:00    
+tuser@tutor-vserver:~$ ls
+[0m[01;32mcharGen[0m    [01;34mlib[0m        [01;32mmeasure.lnx[0m   [01;34mtestaout[0m         timepack_sapc.o
+charGen.c  makefile   measure.o     [01;34mtestelf[0m          typescript
+[01;34minclude[0m    measure.c  measure.syms  timepack_sapc.c
+tuser@tutor-vserver:~$ cat makefile
+# makefile for mp4's measure program 
+# makefile with one additional include dir, and timepack_sapc.c
+# Usage: 
+#    make C=measure   
+#
+# makefile for building C or assembly language programs for the
+# Standalone 486 or Pentium IBM PC running in 32-bit protected mode, 
+# Single-source-file makefile--needs editing for multiple-module programs
+
+# For a C source, say myprog.c, override the "C=ctest" below by
+#  setting C in the make command line: "make C=myprog myprog.lnx"
+#  or just "make C=myprog", since $(C).lnx is the first make target.
+#  Then myprog.lnx is ready for downloading via "mtip -f myprog.lnx"
+#  (followed by ~d inside the mtip program)
+C = ctest
+
+# also "make clean" to clean up non-source files in a directory
+# All UNIX tools from ulab had been moved to LINUX by
+#
+#     Ron Cheung (2/28/2020)
+#
+# Fix the mismatching of gcc and gdb debugging header(dwarf=2) problem
+#     3/23/2020
+#
+# system directories needed for compilers, libraries, header files--
+SAPC_TOOLS = /home/cheungr/serl/tutor-linux
+PC_LIB = $(SAPC_TOOLS)/libc
+PC_INC = $(SAPC_TOOLS)/include
+
+CC    = gcc
+CFLAGS  = -gdwarf-2 -gstrict-dwarf -march=i586 -m32 -fno-builtin -fno-stack-protector -nostdlib -c -Wall -I$(PC_INC)
+AS    = as --32
+NM    = nm
+LD    = ld -m elf_i386
+
+# File suffixes:
+# .c	C source (often useful both for UNIX host and SAPC)
+# .s 	assembly language source
+# .o  relocatable machine code, initialized data, etc., for SA PC
+# .lnx  executable image (bits as in memory), for SA PC (Linux a.out format)
+# .syms text file of .lnx's symbols and their values (the "symbol table")
+# Symbol file "syms"--for most recently built executable in directory
+
+# PC executable--tell ld to start code at 0x1000e0, load special startup
+# module, special PC C libraries--
+# This executable also contains  timepack_sapc.o
+$(C).lnx: $(C).o timepack_sapc.o $(PC_LIB)/libc.a \
+			$(PC_LIB)/startup.o $(PC_LIB)/startup0.o
+	$(LD) -N -Ttext 100100 -o $(C).lnx \
+		$(PC_LIB)/startup0.o $(PC_LIB)/startup.o \
+		$(C).o timepack_sapc.o $(PC_LIB)/libc.a
+	rm -f syms;$(NM) -n $(C).lnx>$(C).syms;ln -s $(C).syms syms
+
+# tell gcc to use $(PC_INC) for #include <...> headers--
+$(C).o: $(C).c
+	$(CC) $(CFLAGS) -c -o $(C).o $(C).c
+
+timepack_sapc.o: timepack_sapc.c timepack.h
+	$(CC) $(CFLAGS) -c -o timepack_sapc.o timepack_sapc.c
+
+clean:
+	rm -f *.o *.syms *.lnx core syms
+tuser@tutor-vserver:~$ exit
+exit
+
+Script done on Wed 28 Apr 2021 07:28:40 PM EDT
